@@ -1,17 +1,9 @@
-require_relative 'command_parser'
+require_relative 'lib/command_parser'
 
 class Cli
-
-    include CommandParser
-
-    def run
-        execute_command(ARGV)
+    def self.run
+        CommandParser.new(ARGV).parse
     end
-
 end
 
-cli = Cli.new 
-cli.run
-
-puts "Successful exit!"
-exit(0)
+Cli.run
