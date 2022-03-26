@@ -6,7 +6,7 @@ describe GemsPrinter do
 
         it "prints rails gem" do
             gem = {"name" => "rails", "info" => "rails info here"}
-            expect(GemsPrinter.print_gem(gem))
+            #expect(GemsPrinter.print_gem(gem))
         end
 
     end
