@@ -25,12 +25,21 @@ RSpec.describe CommandParser do
 
             it "search ruby gem" do
                 gems_list_response = []
+
+                #TODO: modify tests to pass
+
+                expect(self).to receive(:print_filtered_gems_by).with(gems_list_response, "name", "rspec")
+                expect(self).to receive(:search_gems).with('rspec').and_return(gems_list_response)
     
+                execute_command
+
                 expect(self).to receive(:print_filtered_gems_by).with(gems_list_response, "name", "rspec")
                 expect(self).to receive(:search_gems).with('rspec').and_return(gems_list_response)
                 
-                execute_command
+                
             end
         end
     end
 end
+
+#check the other tests to pass, before refactoring the rest of the code

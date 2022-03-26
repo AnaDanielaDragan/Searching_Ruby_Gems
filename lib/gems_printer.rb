@@ -5,3 +5,5 @@ class GemsPrinter
         end
     end
 end
+
+#continue with refactoring the printing methods
