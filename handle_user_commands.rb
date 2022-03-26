@@ -41,9 +41,7 @@ module HandleUserCommands
     end
 
     def print_gem(gem_info)
-        gem_info.each do |label, info|
-            puts "#{label}: #{info}"
-        end
+        GemsPrinter.print_gem(gem_info)
     end
 
     def print_filtered_gems_by(gems_list, label_name, search_string)
