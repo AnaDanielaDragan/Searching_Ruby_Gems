@@ -6,6 +6,9 @@ require './lib/gems_printer'
 class CommandParser
     Faraday.default_adapter = :net_http
 
+    #TODO: rename to ArgumentsParser
+    #continue refactoring here
+
     def initialize(arguments)
         @arguments = arguments
     end
