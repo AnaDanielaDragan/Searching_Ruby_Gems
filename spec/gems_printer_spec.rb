@@ -1,4 +1,4 @@
-require './gems_printer'
+require './lib/gems_printer'
 
 describe GemsPrinter do
 

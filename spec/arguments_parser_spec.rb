@@ -1,4 +1,4 @@
-require './arguments_parser'
+require './lib/arguments_parser'
 
 describe ArgumentsParser do
 
