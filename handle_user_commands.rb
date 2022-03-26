@@ -6,9 +6,8 @@ module HandleUserCommands
     include GetGemsUsingFaraday
     
     def handle_search(argv)
-        puts "You said SEARCH"
-        search_string = get_arguments_string(argv, "search")
-        puts "Here are your results for searching #{search_string}: "
+        
+        search_string = ArgumentsParser.get_arguments_string(argv, "search")
         
         gems_list = search_gems(search_string)
 
@@ -18,22 +17,19 @@ module HandleUserCommands
     end
 
     def handle_show(argv)
-        puts "You said SHOW"
-        show_string = get_arguments_string(argv, "show")
-        puts "Here are your details about #{show_string}:"
+
+        #parse arguments
+        show_string = ArgumentsParser.get_arguments_string(argv, "show")
         
+        #execute command with arguments
         gem_info = show_gem(show_string)
-        
+
+        #print result
         print_gem(gem_info)
 
     end
 
     private
-    def get_arguments_string(argv, argument)
-        argv.delete(argument)
-        argv.join(" ")
-    end
-
     def print_gems_by(gems_list, label_name)
         gems_list.each do |gem|
             gem.each do |label, info|
