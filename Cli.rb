@@ -1,16 +1,11 @@
-require_relative 'handle_user_commands'
+require_relative 'command_parser'
 
-class Cli 
+class Cli
 
-    include HandleUserCommands
+    include CommandParser
 
     def run
-        ARGV.each do |arg|
-            case arg
-            when "search" then handle_search
-            when "show" then handle_show
-            end
-        end
+        execute_command(ARGV)
     end
 
 end
