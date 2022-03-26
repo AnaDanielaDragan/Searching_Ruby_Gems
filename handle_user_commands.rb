@@ -5,9 +5,9 @@ module HandleUserCommands
     #include GetGemsUsingGems
     include GetGemsUsingFaraday
     
-    def handle_search
+    def handle_search(argv)
         puts "You said SEARCH"
-        search_string = get_arguments_string("search")
+        search_string = get_arguments_string(argv, "search")
         puts "Here are your results for searching #{search_string}: "
         
         gems_list = search_gems(search_string)
@@ -17,9 +17,9 @@ module HandleUserCommands
 
     end
 
-    def handle_show
+    def handle_show(argv)
         puts "You said SHOW"
-        show_string = get_arguments_string("show")
+        show_string = get_arguments_string(argv, "show")
         puts "Here are your details about #{show_string}:"
         
         gem_info = show_gem(show_string)
@@ -29,9 +29,9 @@ module HandleUserCommands
     end
 
     private
-    def get_arguments_string(argument)
-        ARGV.delete(argument)
-        ARGV.join(" ")
+    def get_arguments_string(argv, argument)
+        argv.delete(argument)
+        argv.join(" ")
     end
 
     def print_gems_by(gems_list, label_name)
