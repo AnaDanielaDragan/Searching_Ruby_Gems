@@ -50,15 +50,7 @@ module GetGemsUsingFaraday
     private
     def get_from_url(url)
         response = Faraday.get(url)
-
-        begin
-            result = JSON.parse(response.body)
-        rescue JSON::ParserError, ArgumentError => e
-            puts "Exit with error #{e}"
-            exit(1)
-        else
-            result
-        end
-
+        print url
+        result = JSON.parse(response.body)
     end
 end

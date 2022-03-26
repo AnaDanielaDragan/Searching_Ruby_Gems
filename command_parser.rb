@@ -7,8 +7,8 @@ module CommandParser
     def execute_command(arguments)
         arguments.each do |arg|
             case arg
-            when "search" then handle_search
-            when "show" then handle_show
+            when "search" then handle_search(arguments)
+            when "show" then handle_show(arguments)
             end
         end
     end
