@@ -26,20 +26,16 @@ RSpec.describe ArgumentsParser do
             it "search ruby gem" do
                 gems_list_response = []
 
-                #TODO: modify tests to pass
-
-                expect(self).to receive(:print_filtered_gems_by).with(gems_list_response, "name", "rspec")
-                expect(self).to receive(:search_gems).with('rspec').and_return(gems_list_response)
+                allow(arguments_parser).to receive(:print_filtered_gems_by)
+                allow(arguments_parser).to receive(:search_gems).with('rspec')
     
                 arguments_parser.parse
 
-                expect(self).to receive(:print_filtered_gems_by).with(gems_list_response, "name", "rspec")
-                expect(self).to receive(:search_gems).with('rspec').and_return(gems_list_response)
+                expect(arguments_parser).to have_received(:print_filtered_gems_by)
+                expect(arguments_parser).to have_received(:search_gems).with('rspec')
                 
                 
             end
         end
     end
 end
-
-#check the other tests to pass, before refactoring the rest of the code
