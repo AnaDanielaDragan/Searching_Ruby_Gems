@@ -1,8 +1,10 @@
-require_relative 'lib/command_parser'
+require_relative 'lib/arguments_parser'
 
 class Cli
     def self.run
-        CommandParser.new(ARGV).parse
+         command = ArgumentsParser.new(ARGV)
+         command.parse
+         command.execute
     end
 end
 

@@ -15,6 +15,7 @@ RSpec.describe ArgumentsParser do
                 allow(arguments_parser).to receive(:print_gem).with hash_including('name' => 'rspec')
 
                 arguments_parser.parse
+                arguments_parser.execute
 
                 expect(arguments_parser).to have_received(:print_gem).with hash_including('name' => 'rspec')
             end
@@ -26,13 +27,12 @@ RSpec.describe ArgumentsParser do
             it "search ruby gem" do
                 gems_list_response = []
 
-                allow(arguments_parser).to receive(:print_filtered_gems_by)
-                allow(arguments_parser).to receive(:search_gems).with('rspec')
+                allow(arguments_parser).to receive(:handle_search).with('rspec')
     
                 arguments_parser.parse
+                arguments_parser.execute
 
-                expect(arguments_parser).to have_received(:print_filtered_gems_by)
-                expect(arguments_parser).to have_received(:search_gems).with('rspec')
+                expect(arguments_parser).to have_received(:handle_search).with('rspec')
                 
                 
             end
