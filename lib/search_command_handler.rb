@@ -1,6 +1,6 @@
 class SearchCommandHandler
     Faraday.default_adapter = :net_http
-    
+
     def initialize(arguments_string)
         @arguments_string = arguments_string
     end
@@ -41,7 +41,4 @@ class SearchCommandHandler
         print url
         result = JSON.parse(response.body)
     end
-
 end
-
-#use commands design pattern to handle executions of commands

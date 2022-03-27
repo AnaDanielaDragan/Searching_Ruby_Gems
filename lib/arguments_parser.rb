@@ -2,6 +2,7 @@ require 'faraday'
 require 'json'
 require './lib/gems_printer'
 require './lib/search_command_handler'
+require './lib/show_command_handler'
 
 class ArgumentsParser
     Faraday.default_adapter = :net_http
@@ -34,18 +35,8 @@ class ArgumentsParser
     end
 
     def handle_show(argv)
-        gem_info = get_from_url("https://rubygems.org/api/v1/gems/#{argv}.json")
-
-        print_gem(gem_info)
-    end
-
-    def get_from_url(url)
-        response = Faraday.get(url)
-        print url
-        result = JSON.parse(response.body)
-    end
-
-    def print_gem(gem_info)
-        GemsPrinter.print_gem(gem_info)
+        handler = ShowCommandHandler.new(argv)
+        handler.handle_command
+        handler.print_result
     end
 end

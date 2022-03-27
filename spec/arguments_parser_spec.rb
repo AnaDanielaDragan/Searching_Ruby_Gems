@@ -12,12 +12,12 @@ RSpec.describe ArgumentsParser do
             let(:args) { ['show', 'rspec'] }
 
             it "shows a gem details" do  
-                allow(arguments_parser).to receive(:print_gem).with hash_including('name' => 'rspec')
+                allow(arguments_parser).to receive(:handle_show).with ('rspec')
 
                 arguments_parser.parse
                 arguments_parser.execute
 
-                expect(arguments_parser).to have_received(:print_gem).with hash_including('name' => 'rspec')
+                expect(arguments_parser).to have_received(:handle_show).with ('rspec')
             end
         end
 
