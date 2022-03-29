@@ -1,10 +1,6 @@
-class SearchCommandHandler
-    Faraday.default_adapter = :net_http
+require './lib/command_handler'
 
-    def initialize(arguments_string)
-        @arguments_string = arguments_string
-    end
-
+class SearchCommandHandler < CommandHandler
     def handle_command
         @gems_list = search_gems(@arguments_string)
     end
@@ -35,10 +31,5 @@ class SearchCommandHandler
         puts "Number of pages found: #{page}"
         return result
 
-    end
-    def get_from_url(url)
-        response = Faraday.get(url)
-        print url
-        result = JSON.parse(response.body)
     end
 end
