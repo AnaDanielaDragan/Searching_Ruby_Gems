@@ -10,7 +10,7 @@ class CommandHandler
     end
 
     def handle_command
-        HelpCommandHandler.new
+        HelpCommandHandler.new.print_help_message
     end
 
     def get_from_url(url)

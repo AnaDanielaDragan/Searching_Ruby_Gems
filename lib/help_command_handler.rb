@@ -1,5 +1,5 @@
 class HelpCommandHandler
-    def initialize
-        puts "Try one of these commands: <show>, <search>"
+    def print_help_message
+        print "Try one of these commands: <show>, <search>"
     end
 end
