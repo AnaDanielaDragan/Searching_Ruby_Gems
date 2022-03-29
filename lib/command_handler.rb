@@ -15,7 +15,6 @@ class CommandHandler
 
     def get_from_url(url)
         response = Faraday.get(url)
-        print url
         result = JSON.parse(response.body)
     end
 end
