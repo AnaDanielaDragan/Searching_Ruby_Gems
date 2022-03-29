@@ -1,3 +1,5 @@
+require './lib/help_command_handler'
+
 class CommandHandler
     Faraday.default_adapter = :net_http
 
