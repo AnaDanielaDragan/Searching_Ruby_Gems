@@ -21,7 +21,7 @@ class SearchCommandHandler < CommandHandler
             page += 1
 
             #change search restictions here
-            if result.length > 500
+            if result.length > 10
                 puts "Number of pages read: #{page}"
                 puts "Too many results to handle!"
                 return result
