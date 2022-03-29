@@ -1,14 +1,7 @@
-require 'faraday'
-require 'json'
-require './lib/gems_printer'
 require './lib/search_command_handler'
 require './lib/show_command_handler'
 
 class ArgumentsParser
-    Faraday.default_adapter = :net_http
-
-    #continue refactoring here
-
     def initialize(arguments)
         @arguments = arguments
     end

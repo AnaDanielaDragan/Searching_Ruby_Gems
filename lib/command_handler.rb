@@ -1,3 +1,5 @@
+require 'faraday'
+require 'json'
 require './lib/help_command_handler'
 
 class CommandHandler

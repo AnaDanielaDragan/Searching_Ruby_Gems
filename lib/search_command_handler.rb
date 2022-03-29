@@ -1,4 +1,5 @@
 require './lib/command_handler'
+require './lib/gems_printer'
 
 class SearchCommandHandler < CommandHandler
     def handle_command
