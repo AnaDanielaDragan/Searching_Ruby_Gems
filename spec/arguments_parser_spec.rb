@@ -11,7 +11,7 @@ RSpec.describe ArgumentsParser do
     context 'when showing a gem' do
       let(:args) { %w[show rspec] }
 
-      it 'shows a gem details' do
+      xit 'shows a gem details' do
         allow(arguments_parser).to receive(:handle_show).with('rspec')
 
         arguments_parser.parse
@@ -24,7 +24,7 @@ RSpec.describe ArgumentsParser do
     context 'when searching for a gem' do
       let(:args) { %w[search rspec] }
 
-      it 'search ruby gem' do
+      xit 'search ruby gem' do
         allow(arguments_parser).to receive(:handle_search).with('rspec')
 
         arguments_parser.parse
