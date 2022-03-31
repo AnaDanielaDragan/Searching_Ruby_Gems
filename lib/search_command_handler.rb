@@ -26,8 +26,7 @@ class SearchCommandHandler < CommandHandler
 
       puts "Number of pages read: #{page}"
       puts 'Too many results to handle!'
-      result
-
+      return result
     end
 
     puts "Number of pages found: #{page}"
