@@ -1,9 +1,11 @@
 require './lib/search_command_handler'
 require './lib/show_command_handler'
+require './lib/command_handler_context'
 
 class ArgumentsParser
   def initialize(arguments)
     @arguments = arguments
+    @context_handler = CommandHandlerContext.new
   end
 
   def parse
@@ -13,23 +15,11 @@ class ArgumentsParser
 
   def execute
     case @command_string
-    when 'show' then handle_show(@arguments_string)
-    when 'search' then handle_search(@arguments_string)
+    when 'show' then @context_handler.set_command_handler(ShowCommandHandler.new(@arguments_string))
+    when 'search' then @context_handler.set_command_handler(SearchCommandHandler.new(@arguments_string))
     else puts 'No command given.'
     end
-  end
 
-  private
-
-  def handle_search(argv)
-    handler = SearchCommandHandler.new(argv)
-    handler.handle_command
-    handler.print_result
-  end
-
-  def handle_show(argv)
-    handler = ShowCommandHandler.new(argv)
-    handler.handle_command
-    handler.print_result
+    @context_handler.execute
   end
 end
