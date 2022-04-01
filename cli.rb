@@ -1,10 +1,12 @@
-require_relative 'lib/arguments_parser'
+require './lib/arguments_parser'
+require './lib/command_handler'
+require './lib/result_printer'
 
 class CLI
   def self.run
-    command = ArgumentsParser.new(ARGV)
-    command.parse
-    command.execute
+    arguments = ArgumentsParser.parse(ARGV)
+    result = CommandHandler.execute(arguments)
+    ResultPrinter.print(result)
   end
 end
 
