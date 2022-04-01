@@ -1,13 +1,17 @@
-require 'faraday'
-require 'json'
-require './lib/help_command_handler'
+require './lib/ruby_gems_client'
 
 class CommandHandler
-  def initialize(arguments_string)
-    @arguments_string = arguments_string
-  end
+  def self.execute(arguments)
+    command_string = arguments[0]
+    arguments_string = arguments[1]
 
-  def handle_command
-    HelpCommandHandler.new.print_help_message
+    case command_string
+    when 'show'
+      ['gem_info', RubyGemsClient.info(arguments_string)]
+    when 'search'
+      ['gems_list', RubyGemsClient.search(arguments_string)]
+    else
+      ['message', 'Try one of these commands: <show>, <search>']
+    end
   end
 end
