@@ -1,9 +1,10 @@
 require './lib/command_handler'
 require './lib/gems_printer'
+require './lib/ruby_gems_client'
 
 class ShowCommandHandler < CommandHandler
   def handle_command
-    @gem_info = get_from_url("https://rubygems.org/api/v1/gems/#{@arguments_string}.json")
+    @gem_info = RubyGemsClient.info(@arguments_string)
   end
 
   def print_result
