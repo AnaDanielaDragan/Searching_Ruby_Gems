@@ -1,36 +1,33 @@
 require './lib/arguments_parser'
 
 RSpec.describe ArgumentsParser do
-  subject(:arguments_parser) { ArgumentsParser.new(args) }
+  subject(:arguments_parser) { ArgumentsParser }
 
   let(:args) { [] }
 
-  describe '#parse' do
-    subject(:parse) { arguments_parser.parse }
+  describe '.parse' do
+    subject(:parse) { arguments_parser.parse(args) }
 
-    context 'when showing a gem' do
+    context 'when parsing arguments' do
       let(:args) { %w[show rspec] }
 
-      xit 'shows a gem details' do
-        allow(arguments_parser).to receive(:handle_show).with('rspec')
-
-        arguments_parser.parse
-        arguments_parser.execute
-
-        expect(arguments_parser).to have_received(:handle_show).with('rspec')
+      it 'returns an array containing the command show and arguments rspec' do
+        expect(parse).to eql(args)
       end
     end
 
-    context 'when searching for a gem' do
-      let(:args) { %w[search rspec] }
+    context 'when parsing multiple arguments' do
+      let(:args) { %w[show rspec rails] }
+      let(:result) { ['show', 'rspec rails'] }
 
-      xit 'search ruby gem' do
-        allow(arguments_parser).to receive(:handle_search).with('rspec')
+      it 'returns an array containing the command show and arguments rspec rails' do
+        expect(parse).to eql(result)
+      end
+    end
 
-        arguments_parser.parse
-        arguments_parser.execute
-
-        expect(arguments_parser).to have_received(:handle_search).with('rspec')
+    context 'when no arguments are given' do
+      it 'returns an empty array' do
+        expect(parse).to eql([])
       end
     end
   end
