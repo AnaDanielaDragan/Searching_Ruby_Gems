@@ -1,9 +1,11 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-gem "rspec"
+gem 'rspec'
 
-gem "gems"
+gem 'gems'
 
-gem "faraday"
+gem 'faraday'
 
-gem "json"
+gem 'json'
+
+gem 'optparse'
