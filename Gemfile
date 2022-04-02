@@ -5,3 +5,5 @@ gem 'rspec'
 gem 'faraday'
 
 gem 'pry'
+
+gem 'digest'
