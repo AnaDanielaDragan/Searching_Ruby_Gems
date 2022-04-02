@@ -1,4 +1,5 @@
-require './lib/ruby_gems_client'
+require './lib/search_command_handler'
+require './lib/show_command_handler'
 
 class CommandHandler
   def self.execute(arguments)
@@ -7,9 +8,9 @@ class CommandHandler
 
     case command_string
     when 'show'
-      ['gem_info', RubyGemsClient.info(arguments_string)]
+      ['gem_info', ShowCommandHandler.execute(arguments_string)]
     when 'search'
-      ['gems_list', RubyGemsClient.search(arguments_string)]
+      ['gems_list', SearchCommandHandler.execute(arguments_string)]
     else
       ['message', 'Try one of these commands: <show>, <search>']
     end
