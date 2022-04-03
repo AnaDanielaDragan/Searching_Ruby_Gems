@@ -7,3 +7,5 @@ gem 'faraday'
 gem 'pry'
 
 gem 'digest'
+
+gem 'sqlite3'

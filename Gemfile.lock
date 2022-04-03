@@ -26,6 +26,7 @@ GEM
       rspec-support (~> 3.11.0)
     rspec-support (3.11.0)
     ruby2_keywords (0.0.5)
+    sqlite3 (1.4.2)
 
 PLATFORMS
   x86_64-linux
@@ -35,6 +36,7 @@ DEPENDENCIES
   faraday
   pry
   rspec
+  sqlite3
 
 BUNDLED WITH
    2.2.32
