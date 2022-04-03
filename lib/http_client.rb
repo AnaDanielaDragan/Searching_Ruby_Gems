@@ -26,7 +26,12 @@ class HTTPClient
 
     def get_from_url(url)
       response = Faraday.get(url)
-      JSON.parse(response.body)
+
+      begin
+        JSON.parse(response.body)
+      rescue JSON::ParserError
+        []
+      end
     end
   end
 end
