@@ -3,41 +3,43 @@ require './lib/cache'
 require 'digest'
 
 class RubyGemsClientWithCache
-  def self.search(search_string)
-    key = cache_key('search', search_string)
+  class << self
+    def search(search_string)
+      key = cache_key('search', search_string)
 
-    result = cache.read(key)
+      result = cache.read(key)
 
-    unless result
-      result = RubyGemsClient.search(search_string)
+      unless result
+        result = RubyGemsClient.search(search_string)
 
-      cache.write(key, result)
+        cache.write(key, result)
+      end
+
+      result
     end
 
-    result
-  end
+    def info(gem_name)
+      key = cache_key('info', gem_name)
 
-  def self.info(gem_name)
-    key = cache_key('info', gem_name)
+      result = cache.read(key)
 
-    result = cache.read(key)
+      unless result
+        result = RubyGemsClient.info(gem_name)
 
-    unless result
-      result = RubyGemsClient.info(gem_name)
+        cache.write(key, result)
+      end
 
-      cache.write(key, result)
+      result
     end
 
-    result
-  end
+    private
 
-  private
+    def cache
+      Cache.create
+    end
 
-  def cache
-    Cache.create
-  end
-
-  def cache_key(*args)
-    Digest::MD5.hexdigest(args.join(''))
+    def cache_key(*args)
+      Digest::MD5.hexdigest(args.join(''))
+    end
   end
 end
