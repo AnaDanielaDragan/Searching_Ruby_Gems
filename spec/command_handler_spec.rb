@@ -30,7 +30,7 @@ RSpec.describe CommandHandler do
       end
 
       it 'contains the pair name : rspec' do
-        expect(execute[1]).to include({ 'name' => 'rspec' })
+        expect(execute[1].name).to eql('rspec')
       end
     end
 
