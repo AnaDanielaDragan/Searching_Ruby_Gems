@@ -9,3 +9,5 @@ gem 'pry'
 gem 'digest'
 
 gem 'sqlite3'
+
+gem 'time'
