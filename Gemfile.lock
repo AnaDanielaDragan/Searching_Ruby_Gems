@@ -30,6 +30,7 @@ GEM
     sqlite3 (1.4.2)
     time (0.1.0)
       date
+    yaml (0.1.1)
 
 PLATFORMS
   x86_64-linux
@@ -41,6 +42,7 @@ DEPENDENCIES
   rspec
   sqlite3
   time
+  yaml
 
 BUNDLED WITH
    2.2.32

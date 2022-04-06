@@ -11,3 +11,5 @@ gem 'digest'
 gem 'sqlite3'
 
 gem 'time'
+
+gem 'yaml'
