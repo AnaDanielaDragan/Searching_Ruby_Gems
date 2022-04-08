@@ -31,6 +31,9 @@ class Cache
     end
 
     # should return a JSON object
+  ensure
+    results.close
+    @db.close
   end
 
   def write(key, value)
@@ -41,6 +44,8 @@ class Cache
     @db = SQLite3::Database.open 'CACHE.db'
     @db.execute 'INSERT INTO cache (key, expire_date, value) VALUES (?, ?, ?)',
                 key, expire_date.iso8601, JSON.dump(value)
+  ensure
+    @db.close
   end
 
   def close
