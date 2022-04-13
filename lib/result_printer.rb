@@ -1,5 +1,3 @@
-require 'yaml'
-
 class ResultPrinter
   class << self
     def print(result)
@@ -12,7 +10,7 @@ class ResultPrinter
     end
 
     def print_gem(gem_info)
-      puts gem_info.to_yaml
+      puts gem_info
     end
 
     def print_gems_by(gems_list)

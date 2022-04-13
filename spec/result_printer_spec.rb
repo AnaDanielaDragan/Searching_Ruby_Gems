@@ -1,9 +1,9 @@
 require './lib/result_printer'
+require './lib/gem_info'
 
 describe ResultPrinter do
   subject(:print_class) { ResultPrinter }
 
-  let(:gem_info) { GemInfo.new({'name' => 'rails', 'info' => 'rails info here'}) }
   let(:result) { [] }
 
   describe '.print' do
@@ -41,11 +41,13 @@ describe ResultPrinter do
   end
 
   describe '.print_gem' do
-    let(:result) { { 'name' => 'rails', 'info' => 'rails info here' } }
+    subject(:print_gem) { print_class.print_gem(gem_info) }
+
+    let(:gem_info) { GemInfo.new({ 'name' => 'rails', 'info' => 'rails info here' }) }
 
     context 'prints rails gem info' do
-      xit 'contains given info' do
-        expect(print_class.print_gem(gem_info)).to include(result)
+      it 'contains given info' do
+        expect(print_class).to respond_to(:print_gem).with(1).argument
       end
     end
   end

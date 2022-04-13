@@ -9,7 +9,9 @@ class RubyGemsClientWithCache
 
       result = cache.read(key)
 
-      unless result
+      if result
+        result = JSON.parse(result)
+      else
         result = RubyGemsClient.search(search_string) # JSON object
         p 'Not using cache'
         cache.write(key, result)
@@ -23,7 +25,9 @@ class RubyGemsClientWithCache
 
       result = cache.read(key)
 
-      unless result
+      if result
+        result = JSON.parse(result)
+      else
         result = RubyGemsClient.info(gem_name) # JSON object
         p 'Not using cache'
         cache.write(key, result)

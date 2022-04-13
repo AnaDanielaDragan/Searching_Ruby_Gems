@@ -18,19 +18,15 @@ class Cache
     results = @db.query 'SELECT expire_date, value FROM cache WHERE key=?', key
     first_result = results.next
 
-    return unless first_result
+    if first_result
+      parsed_expire_date = Time.parse(first_result[0])
+      parsed_now = Time.parse(Time.now.iso8601)
 
-    parsed_expire_date = Time.parse(first_result[0])
-    parsed_now = Time.parse(Time.now.iso8601)
-
-    if parsed_expire_date > parsed_now
-      puts 'Raw text from database:'
       puts first_result[1]
-      #parse text to return json
-      JSON.parse(first_result[1].to_json)
-    end
+      #result = first_result[1].gsub(//, '')
 
-    # should return a JSON object
+      first_result[1] if parsed_expire_date > parsed_now
+    end
   ensure
     results.close
     @db.close
@@ -46,9 +42,5 @@ class Cache
                 key, expire_date.iso8601, JSON.dump(value)
   ensure
     @db.close
-  end
-
-  def close
-    @db.close if @db
   end
 end
