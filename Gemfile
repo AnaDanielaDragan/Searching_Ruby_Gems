@@ -1,9 +1,15 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-gem "rspec"
+gem 'rspec'
 
-gem "gems"
+gem 'faraday'
 
-gem "faraday"
+gem 'pry'
 
-gem "json"
+gem 'digest'
+
+gem 'sqlite3'
+
+gem 'time'
+
+gem 'yaml'
