@@ -1,9 +1,8 @@
-require './lib/ruby_gems_client'
-require './lib/search_options_parser'
-require './lib/gem_info'
-require './lib/options_handler'
-require './lib/ruby_gems_client_with_cache'
-require 'pry'
+require './lib/client/ruby_gems_client'
+require './lib/client/ruby_gems_client_with_cache'
+require './lib/commands/options/options_handler'
+require './lib/commands/options/search_options_parser'
+require './lib/models/gem_info'
 
 class SearchCommandHandler
   def self.execute(arguments_string)

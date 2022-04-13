@@ -1,4 +1,4 @@
-require './lib/http_client'
+require './lib/client/http_client'
 
 RSpec.describe HTTPClient do
   subject(:http_client) { HTTPClient }

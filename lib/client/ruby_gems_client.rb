@@ -1,4 +1,4 @@
-require './lib/http_client'
+require './lib/client/http_client'
 
 class RubyGemsClient
   def self.search(search_string)

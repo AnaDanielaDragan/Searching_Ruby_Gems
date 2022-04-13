@@ -1,4 +1,4 @@
-require './lib/cache'
+require './lib/cache/cache'
 
 RSpec.describe Cache do
   subject(:cache) { Cache.create }

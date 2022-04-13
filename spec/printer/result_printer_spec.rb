@@ -1,5 +1,5 @@
-require './lib/result_printer'
-require './lib/gem_info'
+require './lib/printer/result_printer'
+require './lib/models/gem_info'
 
 describe ResultPrinter do
   subject(:print_class) { ResultPrinter }

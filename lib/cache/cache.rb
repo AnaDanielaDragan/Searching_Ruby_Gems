@@ -22,9 +22,6 @@ class Cache
       parsed_expire_date = Time.parse(first_result[0])
       parsed_now = Time.parse(Time.now.iso8601)
 
-      puts first_result[1]
-      #result = first_result[1].gsub(//, '')
-
       first_result[1] if parsed_expire_date > parsed_now
     end
   ensure
@@ -33,7 +30,6 @@ class Cache
   end
 
   def write(key, value)
-    # value is a JSON object
     return if value.nil?
 
     expire_date = Time.now + DEFAULT_CACHE_EXPIRATION_TIME

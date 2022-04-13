@@ -1,5 +1,4 @@
-require './lib/command_handler'
-require 'json'
+require './lib/commands/command_handler'
 
 RSpec.describe CommandHandler do
   subject(:command_handler) { CommandHandler }

@@ -1,5 +1,4 @@
 require 'faraday'
-require 'json'
 
 class HTTPClient
   Faraday.default_adapter = :net_http

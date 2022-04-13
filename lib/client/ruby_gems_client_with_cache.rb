@@ -1,5 +1,5 @@
-require './lib/ruby_gems_client'
-require './lib/cache'
+require './lib/client/ruby_gems_client'
+require './lib/cache/cache'
 require 'digest'
 
 class RubyGemsClientWithCache
@@ -12,8 +12,8 @@ class RubyGemsClientWithCache
       if result
         result = JSON.parse(result)
       else
-        result = RubyGemsClient.search(search_string) # JSON object
-        p 'Not using cache'
+        result = RubyGemsClient.search(search_string)
+
         cache.write(key, result)
       end
 
@@ -28,8 +28,8 @@ class RubyGemsClientWithCache
       if result
         result = JSON.parse(result)
       else
-        result = RubyGemsClient.info(gem_name) # JSON object
-        p 'Not using cache'
+        result = RubyGemsClient.info(gem_name)
+
         cache.write(key, result)
       end
 

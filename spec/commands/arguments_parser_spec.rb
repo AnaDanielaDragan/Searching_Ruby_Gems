@@ -1,4 +1,4 @@
-require './lib/arguments_parser'
+require './lib/commands/arguments_parser'
 
 RSpec.describe ArgumentsParser do
   subject(:arguments_parser) { ArgumentsParser }

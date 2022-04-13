@@ -1,7 +1,7 @@
-require './lib/ruby_gems_client'
+require './lib/client/ruby_gems_client_with_cache'
 
-RSpec.describe RubyGemsClient do
-  subject(:client) { RubyGemsClient }
+RSpec.describe RubyGemsClientWithCache do
+  subject(:client) { RubyGemsClientWithCache }
 
   describe '.search' do
     subject(:search) { client.search(search_string) }

@@ -1,4 +1,4 @@
-require './lib/search_command_handler'
+require './lib/commands/search_command_handler'
 
 RSpec.describe SearchCommandHandler, :only do
   subject(:search_command_handler) { SearchCommandHandler }

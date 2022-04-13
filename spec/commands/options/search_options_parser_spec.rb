@@ -1,4 +1,4 @@
-require './lib/search_options_parser'
+require './lib/commands/options/search_options_parser'
 
 RSpec.describe SearchOptionsParser do
   subject(:search_options_parser) { SearchOptionsParser }

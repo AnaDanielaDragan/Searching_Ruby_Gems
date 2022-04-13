@@ -1,5 +1,5 @@
-require './lib/search_command_handler'
-require './lib/show_command_handler'
+require './lib/commands/search_command_handler'
+require './lib/commands/show_command_handler'
 
 class CommandHandler
   def self.execute(arguments)
